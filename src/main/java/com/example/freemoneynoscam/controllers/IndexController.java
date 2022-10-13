@@ -11,13 +11,18 @@ import org.springframework.web.context.request.WebRequest;
 public class IndexController {
 
     @GetMapping("/")
-    public String index(){
+    public String index() {
         return "index";
     }
 
+    @GetMapping("/thankyou")
+    public String thankYou() {
+        return "ThankYou";
+    }
+
     @PostMapping("/test")
-    public String test(WebRequest dataFromForm){
+    public String test(WebRequest dataFromForm) {
         System.out.println(dataFromForm.getParameter("email"));
-        return "redirect:/";
+        return "redirect:/thankyou";
     }
 }
